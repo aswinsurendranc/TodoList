@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
-
+import Form from "./components/form.js";
+import List from './components/list';
+import Container from '@material-ui/core/Container';
 function App() {
+  let [input,setInput]=useState("");
+  let [todos,setTodos]=useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container fixed style={{ backgroundColor: 'grey', height: '100vh' }}>
+     
+            <header className="App-header">
+            <h1>TODO LIST</h1>
+            <Form todos={todos} setTodos={setTodos}input={input} setInput={setInput}/>
+            <List todos={todos} setTodos={setTodos}/>
+            </header>
+        
+      </Container>
     </div>
   );
 }
